@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+">
+    <!--导入properties文件-->
+    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:properties.properties</value>
+        </property>
+    </bean>
+        &lt;!&ndash;配置DataSource&ndash;&gt;
+        <bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+            <property name="driverClassName" value="${driverClassName}"></property>
+            <property name="username" value="${username}"></property>
+            <property name="url" value="${url}"></property>
+            <property name="password" value="${password}"></property>
+
+        </bean>-->
+    <bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="username" value="root"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/mxd"></property>
+        <property name="password" value="@#MA847547125**"></property>
+    </bean>
+<!--    <bean id="tx" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <tx:annotation-driven transaction-manager="tx"  ></tx:annotation-driven>-->
+<bean id="student" class="Student">
+    <property name="stuAge" value="11"></property>
+    <property name="stuName" value="mxd"></property>
+    <property name="stuNo" value="1"></property>
+</bean>
+
+</beans>
